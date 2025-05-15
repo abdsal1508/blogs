@@ -1,13 +1,13 @@
 <?php
-// Database configuration
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '0000');
-define('DB_NAME', 'blog_management_system'); // Changed back to 'blog_management_system'
+// Database configuration - Using environment variables for security
+define('DB_HOST', getenv('DB_HOST') ?: 'localhost');
+define('DB_USER', getenv('DB_USER') ?: 'root');
+define('DB_PASS', getenv('DB_PASS') ?: '0000');
+define('DB_NAME', getenv('DB_NAME') ?: 'blog_management_system');
 
 // Site configuration
 define('SITE_NAME', 'Simply Blogs');
-define('SITE_URL', 'http://localhost/blog');
+define('SITE_URL', getenv('RENDER_EXTERNAL_URL') ? getenv('RENDER_EXTERNAL_URL') : 'http://localhost/blog');
 define('UPLOAD_DIR', 'assets/uploads/posts/');
 define('ITEMS_PER_PAGE', 10);
 

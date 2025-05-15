@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: blog-management-system
+    env: docker
+    repo: https://github.com/abdsal1508/blogs.git
+    branch: main
+    buildCommand: ""
+    startCommand: ""
+    healthCheckPath: /
+    envVars:
+      - key: DB_HOST
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASS
+        sync: false
+      - key: DB_NAME
+        sync: false
+
+databases:
+  - name: blog-db
+    databaseName: blog_management_system
+    user: blog_user
+    plan: free
